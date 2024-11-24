@@ -3,15 +3,23 @@
 #include <string>
 using namespace std;
 
-struct obj {
-    int id, dni;
-    string primer_nombre, segundo_nombre, apellido_materno, apellido_paterno;
-    obj(int _id, int _dni, string p_n, string s_n, string a_m, string a_p) : id(_id), dni(_dni), primer_nombre(p_n), segundo_nombre(s_n), apellido_materno(a_m), apellido_paterno(a_p) {}
+struct table {
+    int index;
+    string item;
+    float cost;
+    float tax;
+    float total;
+    table(int i, string it, float c, float t, float to) : index(i), item(it), cost(c), tax(t), total(to) {}
     void print_obj();
+    bool operator==(const table& other);
 };
 
-void obj::print_obj() {
-    cout << id << " " << dni << " " << primer_nombre << " " << segundo_nombre << " " << apellido_materno << " " << apellido_paterno << " " << endl;
+void table::print_obj() {
+    cout << index << " " << item << " " << cost << " " << tax << " " << total << endl;
+}
+
+bool table::operator==(const table& other) {
+    return index == other.index && item == other.item && cost == other.cost && tax == other.tax && total == other.total;
 }
 
 template <class T>
@@ -135,7 +143,7 @@ bool sim<T>::find_print(T x) {
     while (temp != nullptr) {
         for (int i = 0; i < temp->sec.size(); i++) {
             T obj = temp->sec[i];
-            if (obj.id == x.id) {
+            if (obj == x) {
                 bloque.push_back(temp);
             }
         }
@@ -160,24 +168,35 @@ bool sim<T>::find_print(T x) {
 
 
 int main() {
-    sim<obj> simulacion(2, 2, 2, 2, 2, 200);
+    sim<table> simulacion(2, 2, 2, 2, 2, 200);
 
-    obj o1(1, 12345678, "Juan", "Carlos", "Perez", "Lopez");
-    obj o2(2, 87654321, "Maria", "Elena", "Gomez", "Martinez");
-    obj o3(3, 11223344, "Pedro", "Alberto", "Ramirez", "Diaz");
-    obj o4(4, 55667788, "Ana", "Sofia", "Torres", "Gutierrez");
-    obj o5(5, 99887766, "Luis", "Fernando", "Vargas", "Moreno");
+    table o1(1, "Fruit of the Loom Girls Socks", 7.97, 0.6, 8.57);
+    table o2(2, "Rawlings Little League Baseball", 2.97, 0.22, 3.19);
+    table o3(3, "Secret Antiperspirant", 1.29, 0.1, 1.39);
+    table o4(4, "Deadpool DVD", 14.96, 1.12, 16.08);
+    table o5(5, "Maxwell House Coffee", 7.28, 0.55, 7.83);
+    table o6(6, "Banana Boat Sunscreen", 6.68, 0.5, 7.18);
+    table o7(7, "Wrench Set, 18 pieces", 10.00, 0.75, 10.75);
+    table o8(8, "M and M, 42 oz", 8.98, 0.67, 9.65);
+    table o9(9, "Bertolli Alfredo Sauce", 2.12, 0.16, 2.28);
+    table o10(10, "Large Paperclips, 10", 6.19, 0.46, 6.65);
 
     simulacion.add(o1);
     simulacion.add(o2);
     simulacion.add(o3);
     simulacion.add(o4);
     simulacion.add(o5);
+    simulacion.add(o6);
+    simulacion.add(o7);
+    simulacion.add(o8);
+    simulacion.add(o9);
+    simulacion.add(o10);
+
 
     simulacion.print();
 
     simulacion.find_print(o1);
-    simulacion.find_print(o2);
     simulacion.find_print(o4);
+    simulacion.find_print(o8);
 
 }

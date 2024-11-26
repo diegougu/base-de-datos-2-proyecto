@@ -104,14 +104,6 @@ void sim<T>::add(T x) {
                     update_pos(tail);
                     sum = sum - bytes;
                 }
-                else if (tail->bytes == tail->bytes_ocupados) {
-                    comp<T>* newnodo = new comp<T>(tail->sec_c, tail->pista_c, tail->superficie_c, tail->plato_c, tail->disco_c, bytes);
-                    newnodo->bytes_ocupados = sizeof(x);
-                    tail->next = newnodo;
-                    tail = tail->next;
-                    update_pos(tail);
-                    tail->sec.push_back(x);
-                }
                 else {
                     tail->sec.push_back(x);
                     int rest = sizeof(x) - (tail->bytes - tail->bytes_ocupados);
@@ -125,14 +117,6 @@ void sim<T>::add(T x) {
                 }
             }
         }
-    }
-    else if (tail->bytes == tail->bytes_ocupados) {
-        comp<T>* newnodo = new comp<T>(tail->sec_c, tail->pista_c, tail->superficie_c, tail->plato_c, tail->disco_c, bytes);
-        newnodo->bytes_ocupados += sizeof(x);
-        tail->next = newnodo;
-        tail = tail->next;
-        update_pos(tail);
-        tail->sec.push_back(x);
     }
     else {
         tail->sec.push_back(x);

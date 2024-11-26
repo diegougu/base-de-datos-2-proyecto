@@ -93,11 +93,9 @@ void sim<T>::add(T x) {
                     int rest = sum - bytes;
                     tail->bytes_ocupados = tail->bytes;
                     comp<T>* newnodo = new comp<T>(tail->sec_c, tail->pista_c, tail->superficie_c, tail->plato_c, tail->disco_c, bytes);
-                    newnodo->bytes_ocupados += rest;
                     tail->next = newnodo;
                     tail = tail->next;
                     update_pos(tail);
-                    tail->sec.push_back(x);
                     sum = sum - bytes;
                 }
                 else {

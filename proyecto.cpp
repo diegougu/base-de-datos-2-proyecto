@@ -71,7 +71,7 @@ void sim<T>::add(T x) {
         head = newnodo;
         tail = newnodo;
     }
-    if (tail->sec_c == sec_c && tail->pista_c == pista_c && tail->superficie_c == superficie_c && tail->plato_c == plato_c && tail->disco_c == disco_c) {
+    if (tail->sec_c == sec_c && tail->pista_c == pista_c && tail->superficie_c == superficie_c && tail->plato_c == plato_c && tail->disco_c == disco_c && tail->bytes_ocupados + sizeof(x) > bytes) {
         return;
     }
     if (sizeof(x) > bytes || tail->bytes_ocupados + sizeof(x) > bytes) {

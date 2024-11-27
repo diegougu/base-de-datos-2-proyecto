@@ -3,6 +3,7 @@
 #include <string>
 using namespace std;
 
+//Implementación de la clase 'table'
 struct table{
     int index;
     string item;

@@ -1,6 +1,8 @@
 #ifndef SIM_HPP
 #define SIM_HPP
 
+//Implementación de la clase 'sim'
+
 template <class T>
 class sim{
     private:

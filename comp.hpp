@@ -2,6 +2,8 @@
 #define COMP_HPP
 #include <vector>
 
+
+//Implementación de la clase 'comp'
 template <class T>
 struct comp
 {

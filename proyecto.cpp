@@ -2,14 +2,15 @@
 #include <vector>
 #include <string>
 using namespace std;
-
 struct table {
     int index;
     string item;
     float cost;
     float tax;
     float total;
+    //Constructor
     table(int i, string it, float c, float t, float to) : index(i), item(it), cost(c), tax(t), total(to) {}
+    //Contructor
     void print_obj();
     bool operator==(const table& other);
 };
@@ -27,7 +28,9 @@ struct comp {
     int sec_c, pista_c, superficie_c, plato_c, disco_c, bytes;
     vector<T> sec;
     comp<T>* next = nullptr;
+    //Constructor
     comp(int s_c, int p_c, int su_c, int pl_c, int d_c, int b, comp<T>* n = nullptr) : sec_c(s_c ? s_c : 1), pista_c(p_c ? p_c : 1), superficie_c(su_c ? su_c : 1), plato_c(pl_c ? pl_c : 1), disco_c(d_c ? d_c : 1), bytes(b ? b : 100), next(n) {}
+    //Contructor
     int bytes_ocupados = 0;
 };
 
@@ -39,7 +42,9 @@ private:
     int sec_c, pista_c, superficie_c, plato_c, disco_c, bytes;
     void update_pos(comp<T>* node);
 public:
+    //Constructor
     sim(int s_c, int p_c, int su_c, int pl_c, int d_c, int b) : sec_c(s_c ? s_c : 1), pista_c(p_c ? p_c : 1), superficie_c(su_c ? su_c : 1), plato_c(pl_c ? pl_c : 1), disco_c(d_c ? d_c : 1), bytes(b ? b : 100) {}
+    //Constructor
     void add(T x);
     bool find_print(T x);
     void print();

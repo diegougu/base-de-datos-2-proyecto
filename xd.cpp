@@ -234,8 +234,8 @@ void menu(Gest* x) {
 
 
 int main() {
-    string filePath = "C:\\Users\\diego\\source\\repos\\ConsoleApplication205\\ConsoleApplication205\\taxables.csv";
-    string filename = "C:\\Users\\diego\\source\\repos\\ConsoleApplication205\\ConsoleApplication205\\struct_table.txt";
+    string filePath = "data/taxables.csv";
+    string filename = "data/struct_table.txt";
     vector<objx> objects;
 
 

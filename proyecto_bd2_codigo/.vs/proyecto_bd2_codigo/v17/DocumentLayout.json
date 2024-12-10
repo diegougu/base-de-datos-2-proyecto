@@ -14,11 +14,15 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 1,
+          "SelectedChildIndex": 2,
           "Children": [
             {
               "$type": "Bookmark",
               "Name": "ST:0:0:{40ea2e6b-2121-4bb8-a43e-c83c04b51041}"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:0:0:{de1fc918-f32e-4dd7-a915-1792a051f26b}"
             },
             {
               "$type": "Document",
@@ -28,14 +32,10 @@
               "RelativeDocumentMoniker": "proyecto_bd2_codigo.cpp",
               "ToolTip": "C:\\Users\\anthony\\Proyecto_Base_Datos_II\\proyecto_bd2_codigo\\proyecto_bd2_codigo.cpp",
               "RelativeToolTip": "proyecto_bd2_codigo.cpp",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAEAAAAAAAAAA==",
+              "ViewState": "AgIAALMBAAAAAAAAAAAAALkBAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000677|",
               "WhenOpened": "2024-12-10T18:08:37.002Z",
               "EditorCaption": ""
-            },
-            {
-              "$type": "Bookmark",
-              "Name": "ST:0:0:{de1fc918-f32e-4dd7-a915-1792a051f26b}"
             }
           ]
         }

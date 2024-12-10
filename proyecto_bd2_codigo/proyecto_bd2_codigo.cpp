@@ -446,8 +446,8 @@ void menu(Gest* gestor, const vector<objx>& objects) {
 
 
 int main() {
-    string filePath = "C:\\Users\\PC\\Proyecto_Final_Base_de_Datos_II\\proyecto_bd2_codigo\\data\\taxables.csv";
-    string filename = "C:\\Users\\PC\\Proyecto_Final_Base_de_Datos_II\\proyecto_bd2_codigo\\data\\struct_table.txt";
+    string filePath = "C:\\Users\\anthony\\Proyecto_Base_Datos_II\\proyecto_bd2_codigo\\data\\taxables.csv";
+    string filename = "C:\\Users\\anthony\\Proyecto_Base_Datos_II\\proyecto_bd2_codigo\\data\\struct_table.txt";
     vector<objx> objects;
     Gest* gestor = nullptr;
 

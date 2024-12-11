@@ -1,0 +1,2 @@
+C:\\Users\\PC\\Proyecto_Final_Base_de_Datos_II\\proyecto_bd2_codigo\\data\\struct_table.txt
+C:\\Users\\PC\\Proyecto_Final_Base_de_Datos_II\\proyecto_bd2_codigo\\data\\taxables.csv

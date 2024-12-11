@@ -14,7 +14,17 @@ public:
     int peso = 0;
     void add(string tipo, string tam);
     bool operator==(const objx& other);
+    bool quest(string& ox);
 };
+
+bool objx::quest(string& subcadena) {
+    for (int i = 0; i < valores.size(); i++) {
+        if (valores[i].find(subcadena) != std::string::npos) {
+            return true;
+        }
+    }
+    return false;
+}
 
 void objx::add(string tipo, string tam) {
     tipos.push_back(make_pair(tipo, stoi(tam)));
@@ -22,6 +32,8 @@ void objx::add(string tipo, string tam) {
 }
 
 bool objx::operator==(const objx& other) {
+
+
     return tipos == other.tipos && valores == other.valores;
 }
 
@@ -162,7 +174,7 @@ private:
 public:
     Gest(int s_c, int p_c, int su_c, int pl_c, int d_c, int b) : sec_c(s_c ? s_c : 1), pista_c(p_c ? p_c : 1), superficie_c(su_c ? su_c : 1), plato_c(pl_c ? pl_c : 1), disco_c(d_c ? d_c : 1), bytes(b ? b : 100) {}
     void add(objx x);
-    bool find_print(objx x, vector<Nodo*>& pos);
+    bool find_print(string subcadena, vector<Nodo*>& pos);
     void print(float startx, float starty, float linesSpacing, vector<sf::Text>& lines, sf::Font& font);
 };
 
@@ -204,11 +216,11 @@ void Gest::add(objx x) {
     tail->bytes_ocupados += x.peso;
 }
 
-bool Gest::find_print(objx x, vector<Nodo*>& pos) {
+bool Gest::find_print(string subcadena, vector<Nodo*>& pos) {
 
     for (Nodo* current = head; current; current = current->next) {
         for (int i = 0; i < current->sec.size(); i++) {
-            if (current->sec[i] == x) {
+            if (current->sec[i].quest(subcadena)) {
                 pos.push_back(current);
             }
         }
@@ -246,52 +258,253 @@ void Gest::print(float startx, float starty, float linesSpacing, vector<sf::Text
     }
 }
 
-void newdato(objx& dato) {
+void newquest(string& palabra, sf::RenderWindow& window, sf::Font& font) {
+    sf::Text inputLabel("Ingrese una palabra:", font, 20);
+    inputLabel.setPosition(50, 50);
+
+    sf::RectangleShape inputBox(sf::Vector2f(400, 30));
+    inputBox.setPosition(50, 100);
+    inputBox.setFillColor(sf::Color::White);
+    inputBox.setOutlineColor(sf::Color::Black);
+    inputBox.setOutlineThickness(1);
+
+    sf::Text inputText("", font, 20);
+    inputText.setPosition(55, 105);
+    inputText.setFillColor(sf::Color::Black);
+
+    sf::RectangleShape button(sf::Vector2f(100, 40));
+    button.setPosition(200, 200);
+    button.setFillColor(sf::Color::Green);
+
+    sf::Text buttonText("Aceptar", font, 20);
+    buttonText.setPosition(215, 205);
+
+    string inputString;
+    bool submitted = false;
+
+    while (window.isOpen() && !submitted) {
+        sf::Event event;
+        while (window.pollEvent(event)) {
+            if (event.type == sf::Event::Closed)
+                window.close();
+
+            if (event.type == sf::Event::TextEntered) {
+                if (event.text.unicode == '\b' && !inputString.empty()) {
+                    inputString.pop_back();
+                }
+                else if (event.text.unicode < 128) {
+                    inputString += static_cast<char>(event.text.unicode);
+                }
+                inputText.setString(inputString);
+            }
+
+            if (event.type == sf::Event::MouseButtonPressed) {
+                if (button.getGlobalBounds().contains(event.mouseButton.x, event.mouseButton.y)) {
+                    palabra = inputString;
+                    submitted = true;
+                }
+            }
+        }
+
+        window.clear(sf::Color::White);
+        window.draw(inputLabel);
+        window.draw(inputBox);
+        window.draw(inputText);
+        window.draw(button);
+        window.draw(buttonText);
+        window.display();
+    }
+}
+
+
+void newdato(objx& dato, sf::RenderWindow& window, sf::Font& font) {
     dato.tipos = todo.tipos;
     dato.peso = todo.peso;
     string concatenated;
-    cout << "ingresa los valores del dato: " << endl;
-    for (int i = 0; i < dato.tipos.size(); i++) {
-        string all;
-        if (dato.tipos[i].first == "INTEGER") {
-            cin >> all;
-            concatenated += all;
-            concatenated += " ";
 
-        }
-        else if (dato.tipos[i].first == "VARCHAR") {
-            do {
-                cin >> all;
-            } while (all.size() > dato.tipos[i].second);
-            concatenated += all;
-            concatenated += " ";
-        }
-        else if (dato.tipos[i].first == "DECIMAL") {
-            cin >> all;
-            concatenated += all;
-            concatenated += " ";
+    sf::Text inputLabel("Ingrese valores del dato:", font, 20);
+    inputLabel.setPosition(50, 50);
+
+    sf::RectangleShape inputBox(sf::Vector2f(400, 30));
+    inputBox.setFillColor(sf::Color::White);
+    inputBox.setOutlineColor(sf::Color::Black);
+    inputBox.setOutlineThickness(1);
+
+    sf::Text inputText("", font, 20);
+    inputText.setFillColor(sf::Color::Black);
+
+    sf::RectangleShape button(sf::Vector2f(100, 40));
+    button.setFillColor(sf::Color::Green);
+    sf::Text buttonText("Siguiente", font, 20);
+    buttonText.setFillColor(sf::Color::Black);
+
+    for (int i = 0; i < dato.tipos.size(); i++) {
+        string inputString;
+        bool submitted = false;
+
+        inputLabel.setString("Ingrese " + dato.tipos[i].first + " (max " + to_string(dato.tipos[i].second) + "):");
+        inputBox.setPosition(50, 100);
+        inputText.setPosition(55, 105);
+        button.setPosition(200, 200);
+        buttonText.setPosition(210, 205);
+
+        while (window.isOpen() && !submitted) {
+            sf::Event event;
+            while (window.pollEvent(event)) {
+                if (event.type == sf::Event::Closed)
+                    window.close();
+
+                if (event.type == sf::Event::TextEntered) {
+                    if (event.text.unicode == '\b' && !inputString.empty()) {
+                        inputString.pop_back();
+                    }
+                    else if (event.text.unicode < 128) {
+                        inputString += static_cast<char>(event.text.unicode);
+                    }
+
+                    inputText.setString(inputString);
+                }
+
+                if (event.type == sf::Event::MouseButtonPressed) {
+                    if (button.getGlobalBounds().contains(event.mouseButton.x, event.mouseButton.y)) {
+                        if (dato.tipos[i].first == "VARCHAR" && inputString.size() <= dato.tipos[i].second) {
+                            concatenated += inputString + " ";
+                            submitted = true;
+                        }
+                        else if (dato.tipos[i].first != "VARCHAR") {
+                            concatenated += inputString + " ";
+                            submitted = true;
+                        }
+                    }
+                }
+            }
+
+            window.clear(sf::Color::White);
+            window.draw(inputLabel);
+            window.draw(inputBox);
+            window.draw(inputText);
+            window.draw(button);
+            window.draw(buttonText);
+            window.display();
         }
     }
+
     dato.valores.push_back(concatenated);
 }
 
-void menu(Gest* gestor, const vector<objx>& objects) {
-    int sectores, pistas, superficie, plato, disco, bytes;
+void getInput(sf::RenderWindow& window, sf::Font& font, vector<int>& values) {
+    vector<sf::Text> labels = {
+        sf::Text("Sectores:", font, 20),
+        sf::Text("Pistas:", font, 20),
+        sf::Text("Superficie:", font, 20),
+        sf::Text("Plato:", font, 20),
+        sf::Text("Disco:", font, 20),
+        sf::Text("Bytes:", font, 20)
+    };
 
-    cout << "Ingrese la cantidad de sectores, pistas, superficie, plato, disco y cantidad de bytes que soporta cada sector: " << endl;
-    cin >> sectores >> pistas >> superficie >> plato >> disco >> bytes;
+    vector<sf::RectangleShape> inputBoxes(labels.size(), sf::RectangleShape(sf::Vector2f(200, 30)));
+    vector<string> inputStrings(labels.size(), "");
 
-    gestor = new Gest(sectores, pistas, superficie, plato, disco, bytes);
-
-    for (int i = 0; i < objects.size(); i++) {
-        gestor->add(objects[i]);
+    for (size_t i = 0; i < labels.size(); ++i) {
+        labels[i].setPosition(50, 50 + i * 60);
+        labels[i].setFillColor(sf::Color::Black);
+        inputBoxes[i].setFillColor(sf::Color::White);
+        inputBoxes[i].setOutlineColor(sf::Color::Black);
+        inputBoxes[i].setOutlineThickness(2);
+        inputBoxes[i].setPosition(200, 50 + i * 60);
     }
 
+    sf::Text submitText("Submit", font, 20);
+    sf::RectangleShape submitButton(sf::Vector2f(100, 40));
+    submitButton.setFillColor(sf::Color::White);
+    submitButton.setOutlineColor(sf::Color::Black);
+    submitButton.setOutlineThickness(2);
+    submitButton.setPosition(200, 50 + labels.size() * 60);
+    submitText.setFillColor(sf::Color::Black);
+    submitText.setPosition(215, 55 + labels.size() * 60);
+
+    size_t activeBox = 0;
+    bool submitted = false;
+
+    while (window.isOpen() && !submitted) {
+        sf::Event event;
+        while (window.pollEvent(event)) {
+            if (event.type == sf::Event::Closed)
+                window.close();
+
+            if (event.type == sf::Event::TextEntered) {
+                if (activeBox < inputBoxes.size()) {
+                    if (event.text.unicode == '\b' && !inputStrings[activeBox].empty()) {
+                        inputStrings[activeBox].pop_back();
+                    }
+                    else if (isdigit(event.text.unicode)) {
+                        inputStrings[activeBox] += static_cast<char>(event.text.unicode);
+                    }
+                }
+            }
+
+            if (event.type == sf::Event::MouseButtonPressed) {
+                sf::Vector2i mousePos = sf::Mouse::getPosition(window);
+                sf::Vector2f mousePosF(static_cast<float>(mousePos.x), static_cast<float>(mousePos.y));
+
+                for (size_t i = 0; i < inputBoxes.size(); ++i) {
+                    if (inputBoxes[i].getGlobalBounds().contains(mousePosF)) {
+                        activeBox = i;
+                        break;
+                    }
+                }
+
+                if (submitButton.getGlobalBounds().contains(mousePosF)) {
+                    submitted = true;
+                }
+            }
+        }
+
+        window.clear(sf::Color::White);
+
+        for (size_t i = 0; i < labels.size(); ++i) {
+            window.draw(labels[i]);
+            window.draw(inputBoxes[i]);
+
+            sf::Text inputText(inputStrings[i], font, 20);
+            inputText.setFillColor(sf::Color::Black);
+            inputText.setPosition(inputBoxes[i].getPosition().x + 5, inputBoxes[i].getPosition().y + 5);
+            window.draw(inputText);
+        }
+
+        window.draw(submitButton);
+        window.draw(submitText);
+        window.display();
+    }
+
+    values.clear();
+    for (const auto& str : inputStrings) {
+        values.push_back(stoi(str));
+    }
+}
+
+void menu(Gest* gestor, const vector<objx>& objects) {
     sf::RenderWindow window(sf::VideoMode(1000, 600), "Menu SFML");
     sf::Font font;
     if (!font.loadFromFile("C:/Windows/Fonts/arial.ttf")) {
         cerr << "No se pudo cargar la fuente arial.ttf desde C:/Windows/Fonts/" << endl;
         return;
+    }
+
+    vector<int> values;
+    getInput(window, font, values);
+
+    int sectores = values[0];
+    int pistas = values[1];
+    int superficie = values[2];
+    int plato = values[3];
+    int disco = values[4];
+    int bytes = values[5];
+
+    gestor = new Gest(sectores, pistas, superficie, plato, disco, bytes);
+
+    for (int i = 0; i < objects.size(); i++) {
+        gestor->add(objects[i]);
     }
 
     sf::RectangleShape insertButton(sf::Vector2f(100, 30));
@@ -347,38 +560,21 @@ void menu(Gest* gestor, const vector<objx>& objects) {
 
                     objx nuevoObjeto;
 
-                    newdato(nuevoObjeto);
+                    newdato(nuevoObjeto, window, font);
                     gestor->add(nuevoObjeto);
                     lines.clear();
                     gestor->print(startX, startY, lineSpacing, lines, font);
                 }
 
                 if (findButton.getGlobalBounds().contains(mousePosF) && !isFindView) {
-                    cout << "Boton FIND presionado" << endl;
                     findResults.clear();
                     float resultStartY = 50.0f;
                     objx objetoBuscar;
                     bool veri = false;
-                    cout << "ingresa 1 si es para buscar un elemento de csv o ingresa 0 si es para buscar un elemento ya insertado: " << endl;
-                    cin >> veri;
-                    if (veri) {
-                        int pos = -1;
-                        do {
-                            cout << "ingresa la posicion del elemento dentro del csv (1 a " << objects.size() << "): " << endl;
-                            cin >> pos;
-                            if (pos < 1 || pos > objects.size()) {
-                                cout << "Posicion invalida. Inténtalo de nuevo." << endl;
-                            }
-                        } while (pos < 1 || pos > objects.size());
-                        objetoBuscar.valores = objects[pos - 1].valores;
-                        objetoBuscar.tipos = objects[pos - 1].tipos;
-                    }
-                    else {
-                        newdato(objetoBuscar);
-                    }
-
+                    string palabra;
+                    newquest(palabra, window, font);
                     vector<Nodo*> pos;
-                    if (gestor->find_print(objetoBuscar, pos)) {
+                    if (gestor->find_print(palabra, pos)) {
                         for (Nodo* nodo : pos) {
                             sf::Text resultText;
                             resultText.setFont(font);
@@ -413,7 +609,7 @@ void menu(Gest* gestor, const vector<objx>& objects) {
                 }
 
                 if (backButton.getGlobalBounds().contains(mousePosF) && isFindView) {
-                    cout << "Boton BACK presionado" << endl;
+                    cout << "Botón BACK presionado" << endl;
                     isFindView = false;
                 }
             }
@@ -444,11 +640,117 @@ void menu(Gest* gestor, const vector<objx>& objects) {
     }
 }
 
+void getInputFromUser(string& filePath, string& fileName) {
+    sf::RenderWindow window(sf::VideoMode(1000, 600), "Input de Archivo");
+
+    sf::Font font;
+    if (!font.loadFromFile("C:/Windows/Fonts/arial.ttf")) {
+        std::cerr << "No se pudo cargar la fuente." << std::endl;
+        return;
+    }
+
+    sf::Text filePathLabel("filePath:", font, 20);
+    filePathLabel.setPosition(50, 50);
+
+    sf::Text fileNameLabel("fileName:", font, 20);
+    fileNameLabel.setPosition(50, 150);
+
+    sf::RectangleShape filePathBox(sf::Vector2f(400, 30));
+    filePathBox.setPosition(50, 90);
+    filePathBox.setFillColor(sf::Color::White);
+    filePathBox.setOutlineColor(sf::Color::Black);
+    filePathBox.setOutlineThickness(1);
+
+    sf::RectangleShape fileNameBox(sf::Vector2f(400, 30));
+    fileNameBox.setPosition(50, 190);
+    fileNameBox.setFillColor(sf::Color::White);
+    fileNameBox.setOutlineColor(sf::Color::Black);
+    fileNameBox.setOutlineThickness(1);
+
+    sf::RectangleShape acceptButton(sf::Vector2f(100, 40));
+    acceptButton.setPosition(250, 300);
+    acceptButton.setFillColor(sf::Color::Green);
+
+    sf::Text acceptText("Aceptar", font, 20);
+    acceptText.setPosition(260, 305);
+
+    sf::Text filePathText("", font, 18);
+    filePathText.setPosition(55, 95);
+    filePathText.setFillColor(sf::Color::Black);
+
+    sf::Text fileNameText("", font, 18);
+    fileNameText.setPosition(55, 195);
+    fileNameText.setFillColor(sf::Color::Black);
+
+    std::string filePathInput;
+    std::string fileNameInput;
+    bool isFilePathActive = true;
+
+    while (window.isOpen()) {
+        sf::Event event;
+        while (window.pollEvent(event)) {
+            if (event.type == sf::Event::Closed) {
+                window.close();
+            }
+
+            if (event.type == sf::Event::TextEntered) {
+                if (isFilePathActive) {
+                    if (event.text.unicode == '\b' && !filePathInput.empty()) {
+                        filePathInput.pop_back();
+                    }
+                    else if (event.text.unicode < 128 && event.text.unicode != '\b') {
+                        filePathInput += static_cast<char>(event.text.unicode);
+                    }
+                    filePathText.setString(filePathInput);
+                }
+                else {
+                    if (event.text.unicode == '\b' && !fileNameInput.empty()) {
+                        fileNameInput.pop_back();
+                    }
+                    else if (event.text.unicode < 128 && event.text.unicode != '\b') {
+                        fileNameInput += static_cast<char>(event.text.unicode);
+                    }
+                    fileNameText.setString(fileNameInput);
+                }
+            }
+
+            if (event.type == sf::Event::MouseButtonPressed) {
+                sf::Vector2i mousePos = sf::Mouse::getPosition(window);
+
+                if (filePathBox.getGlobalBounds().contains(mousePos.x, mousePos.y)) {
+                    isFilePathActive = true;
+                }
+                else if (fileNameBox.getGlobalBounds().contains(mousePos.x, mousePos.y)) {
+                    isFilePathActive = false;
+                }
+                else if (acceptButton.getGlobalBounds().contains(mousePos.x, mousePos.y)) {
+                    filePath = filePathInput;
+                    fileName = fileNameInput;
+                    window.close();
+                }
+            }
+        }
+
+        window.clear(sf::Color::Cyan);
+        window.draw(filePathLabel);
+        window.draw(fileNameLabel);
+        window.draw(filePathBox);
+        window.draw(fileNameBox);
+        window.draw(filePathText);
+        window.draw(fileNameText);
+        window.draw(acceptButton);
+        window.draw(acceptText);
+        window.display();
+    }
+}
+
+
 
 int main() {
-    string filePath = "C:\\Users\\anthony\\Proyecto_Base_Datos_II\\proyecto_bd2_codigo\\data\\taxables.csv";
-    string filename = "C:\\Users\\anthony\\Proyecto_Base_Datos_II\\proyecto_bd2_codigo\\data\\struct_table.txt";
+    string filePath;
+    string filename;
     vector<objx> objects;
+    getInputFromUser(filePath, filename);
     Gest* gestor = nullptr;
 
     readTXT(filename);

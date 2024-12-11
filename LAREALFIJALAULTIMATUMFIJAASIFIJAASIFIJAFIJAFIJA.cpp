@@ -121,8 +121,6 @@ void readTXT(const string& file_name) {
     file.close();
 }
 
-
-
 void readCSV(const string& filePath, vector<objx>& objects) {
     ifstream file(filePath);
     if (!file.is_open()) {
@@ -156,7 +154,6 @@ void readCSV(const string& filePath, vector<objx>& objects) {
     file.close();
 }
 
-
 struct Nodo {
     int sec_c, pista_c, superficie_c, plato_c, disco_c, bytes;
     vector<objx> sec;
@@ -177,7 +174,6 @@ public:
     bool find_print(string subcadena, vector<Nodo*>& pos);
     void print(float startx, float starty, float linesSpacing, vector<sf::Text>& lines, sf::Font& font);
 };
-
 
 void Gest::update_pos(Nodo* node) {
     if (++node->sec_c > sec_c) {
@@ -232,7 +228,6 @@ bool Gest::find_print(string subcadena, vector<Nodo*>& pos) {
 
     return true;
 }
-
 
 void Gest::print(float startx, float starty, float linesSpacing, vector<sf::Text>& lines, sf::Font& font) {
     lines.clear();
@@ -315,7 +310,6 @@ void newquest(string& palabra, sf::RenderWindow& window, sf::Font& font) {
         window.display();
     }
 }
-
 
 void newdato(objx& dato, sf::RenderWindow& window, sf::Font& font) {
     dato.tipos = todo.tipos;
@@ -744,9 +738,9 @@ void getInputFromUser(string& filePath, string& fileName) {
     }
 }
 
-
-
 int main() {
+    //primero csv 
+    // luego txt
     string filePath;
     string filename;
     vector<objx> objects;

@@ -1,2 +1,80 @@
 ﻿  proyecto_bd2_codigo.cpp
-  proyecto_bd2_codigo.vcxproj -> C:\Users\anthony\Proyecto_Base_Datos_II\proyecto_bd2_codigo\x64\Debug\proyecto_bd2_codigo.exe
+C:\Users\PC\Proyecto_Final_Base_de_Datos_II\proyecto_bd2_codigo\proyecto_bd2_codigo.cpp(302,93): warning C4244: 'argumento': conversión de 'int' a 'T'; posible pérdida de datos
+C:\Users\PC\Proyecto_Final_Base_de_Datos_II\proyecto_bd2_codigo\proyecto_bd2_codigo.cpp(302,93): warning C4244:         with
+C:\Users\PC\Proyecto_Final_Base_de_Datos_II\proyecto_bd2_codigo\proyecto_bd2_codigo.cpp(302,93): warning C4244:         [
+C:\Users\PC\Proyecto_Final_Base_de_Datos_II\proyecto_bd2_codigo\proyecto_bd2_codigo.cpp(302,93): warning C4244:             T=float
+C:\Users\PC\Proyecto_Final_Base_de_Datos_II\proyecto_bd2_codigo\proyecto_bd2_codigo.cpp(302,93): warning C4244:         ]
+C:\Users\PC\Proyecto_Final_Base_de_Datos_II\proyecto_bd2_codigo\proyecto_bd2_codigo.cpp(302,72): warning C4244: 'argumento': conversión de 'int' a 'T'; posible pérdida de datos
+C:\Users\PC\Proyecto_Final_Base_de_Datos_II\proyecto_bd2_codigo\proyecto_bd2_codigo.cpp(302,72): warning C4244:         with
+C:\Users\PC\Proyecto_Final_Base_de_Datos_II\proyecto_bd2_codigo\proyecto_bd2_codigo.cpp(302,72): warning C4244:         [
+C:\Users\PC\Proyecto_Final_Base_de_Datos_II\proyecto_bd2_codigo\proyecto_bd2_codigo.cpp(302,72): warning C4244:             T=float
+C:\Users\PC\Proyecto_Final_Base_de_Datos_II\proyecto_bd2_codigo\proyecto_bd2_codigo.cpp(302,72): warning C4244:         ]
+C:\Users\PC\Proyecto_Final_Base_de_Datos_II\proyecto_bd2_codigo\proyecto_bd2_codigo.cpp(369,97): warning C4244: 'argumento': conversión de 'int' a 'T'; posible pérdida de datos
+C:\Users\PC\Proyecto_Final_Base_de_Datos_II\proyecto_bd2_codigo\proyecto_bd2_codigo.cpp(369,97): warning C4244:         with
+C:\Users\PC\Proyecto_Final_Base_de_Datos_II\proyecto_bd2_codigo\proyecto_bd2_codigo.cpp(369,97): warning C4244:         [
+C:\Users\PC\Proyecto_Final_Base_de_Datos_II\proyecto_bd2_codigo\proyecto_bd2_codigo.cpp(369,97): warning C4244:             T=float
+C:\Users\PC\Proyecto_Final_Base_de_Datos_II\proyecto_bd2_codigo\proyecto_bd2_codigo.cpp(369,97): warning C4244:         ]
+C:\Users\PC\Proyecto_Final_Base_de_Datos_II\proyecto_bd2_codigo\proyecto_bd2_codigo.cpp(369,76): warning C4244: 'argumento': conversión de 'int' a 'T'; posible pérdida de datos
+C:\Users\PC\Proyecto_Final_Base_de_Datos_II\proyecto_bd2_codigo\proyecto_bd2_codigo.cpp(369,76): warning C4244:         with
+C:\Users\PC\Proyecto_Final_Base_de_Datos_II\proyecto_bd2_codigo\proyecto_bd2_codigo.cpp(369,76): warning C4244:         [
+C:\Users\PC\Proyecto_Final_Base_de_Datos_II\proyecto_bd2_codigo\proyecto_bd2_codigo.cpp(369,76): warning C4244:             T=float
+C:\Users\PC\Proyecto_Final_Base_de_Datos_II\proyecto_bd2_codigo\proyecto_bd2_codigo.cpp(369,76): warning C4244:         ]
+C:\Users\PC\Proyecto_Final_Base_de_Datos_II\proyecto_bd2_codigo\proyecto_bd2_codigo.cpp(409,38): warning C4244: 'argumento': conversión de 'size_t' a 'float'; posible pérdida de datos
+C:\Users\PC\Proyecto_Final_Base_de_Datos_II\proyecto_bd2_codigo\proyecto_bd2_codigo.cpp(414,43): warning C4244: 'argumento': conversión de 'size_t' a 'float'; posible pérdida de datos
+C:\Users\PC\Proyecto_Final_Base_de_Datos_II\proyecto_bd2_codigo\proyecto_bd2_codigo.cpp(422,38): warning C4244: 'argumento': conversión de 'unsigned __int64' a 'float'; posible pérdida de datos
+C:\Users\PC\Proyecto_Final_Base_de_Datos_II\proyecto_bd2_codigo\proyecto_bd2_codigo.cpp(424,36): warning C4244: 'argumento': conversión de 'unsigned __int64' a 'float'; posible pérdida de datos
+C:\Users\PC\Proyecto_Final_Base_de_Datos_II\proyecto_bd2_codigo\proyecto_bd2_codigo.cpp(720,80): warning C4244: 'argumento': conversión de 'T' a 'T'; posible pérdida de datos
+C:\Users\PC\Proyecto_Final_Base_de_Datos_II\proyecto_bd2_codigo\proyecto_bd2_codigo.cpp(720,80): warning C4244:         with
+C:\Users\PC\Proyecto_Final_Base_de_Datos_II\proyecto_bd2_codigo\proyecto_bd2_codigo.cpp(720,80): warning C4244:         [
+C:\Users\PC\Proyecto_Final_Base_de_Datos_II\proyecto_bd2_codigo\proyecto_bd2_codigo.cpp(720,80): warning C4244:             T=int
+C:\Users\PC\Proyecto_Final_Base_de_Datos_II\proyecto_bd2_codigo\proyecto_bd2_codigo.cpp(720,80): warning C4244:         ]
+C:\Users\PC\Proyecto_Final_Base_de_Datos_II\proyecto_bd2_codigo\proyecto_bd2_codigo.cpp(720,80): warning C4244:         and
+C:\Users\PC\Proyecto_Final_Base_de_Datos_II\proyecto_bd2_codigo\proyecto_bd2_codigo.cpp(720,80): warning C4244:         [
+C:\Users\PC\Proyecto_Final_Base_de_Datos_II\proyecto_bd2_codigo\proyecto_bd2_codigo.cpp(720,80): warning C4244:             T=float
+C:\Users\PC\Proyecto_Final_Base_de_Datos_II\proyecto_bd2_codigo\proyecto_bd2_codigo.cpp(720,80): warning C4244:         ]
+C:\Users\PC\Proyecto_Final_Base_de_Datos_II\proyecto_bd2_codigo\proyecto_bd2_codigo.cpp(720,68): warning C4244: 'argumento': conversión de 'T' a 'T'; posible pérdida de datos
+C:\Users\PC\Proyecto_Final_Base_de_Datos_II\proyecto_bd2_codigo\proyecto_bd2_codigo.cpp(720,68): warning C4244:         with
+C:\Users\PC\Proyecto_Final_Base_de_Datos_II\proyecto_bd2_codigo\proyecto_bd2_codigo.cpp(720,68): warning C4244:         [
+C:\Users\PC\Proyecto_Final_Base_de_Datos_II\proyecto_bd2_codigo\proyecto_bd2_codigo.cpp(720,68): warning C4244:             T=int
+C:\Users\PC\Proyecto_Final_Base_de_Datos_II\proyecto_bd2_codigo\proyecto_bd2_codigo.cpp(720,68): warning C4244:         ]
+C:\Users\PC\Proyecto_Final_Base_de_Datos_II\proyecto_bd2_codigo\proyecto_bd2_codigo.cpp(720,68): warning C4244:         and
+C:\Users\PC\Proyecto_Final_Base_de_Datos_II\proyecto_bd2_codigo\proyecto_bd2_codigo.cpp(720,68): warning C4244:         [
+C:\Users\PC\Proyecto_Final_Base_de_Datos_II\proyecto_bd2_codigo\proyecto_bd2_codigo.cpp(720,68): warning C4244:             T=float
+C:\Users\PC\Proyecto_Final_Base_de_Datos_II\proyecto_bd2_codigo\proyecto_bd2_codigo.cpp(720,68): warning C4244:         ]
+C:\Users\PC\Proyecto_Final_Base_de_Datos_II\proyecto_bd2_codigo\proyecto_bd2_codigo.cpp(723,85): warning C4244: 'argumento': conversión de 'T' a 'T'; posible pérdida de datos
+C:\Users\PC\Proyecto_Final_Base_de_Datos_II\proyecto_bd2_codigo\proyecto_bd2_codigo.cpp(723,85): warning C4244:         with
+C:\Users\PC\Proyecto_Final_Base_de_Datos_II\proyecto_bd2_codigo\proyecto_bd2_codigo.cpp(723,85): warning C4244:         [
+C:\Users\PC\Proyecto_Final_Base_de_Datos_II\proyecto_bd2_codigo\proyecto_bd2_codigo.cpp(723,85): warning C4244:             T=int
+C:\Users\PC\Proyecto_Final_Base_de_Datos_II\proyecto_bd2_codigo\proyecto_bd2_codigo.cpp(723,85): warning C4244:         ]
+C:\Users\PC\Proyecto_Final_Base_de_Datos_II\proyecto_bd2_codigo\proyecto_bd2_codigo.cpp(723,85): warning C4244:         and
+C:\Users\PC\Proyecto_Final_Base_de_Datos_II\proyecto_bd2_codigo\proyecto_bd2_codigo.cpp(723,85): warning C4244:         [
+C:\Users\PC\Proyecto_Final_Base_de_Datos_II\proyecto_bd2_codigo\proyecto_bd2_codigo.cpp(723,85): warning C4244:             T=float
+C:\Users\PC\Proyecto_Final_Base_de_Datos_II\proyecto_bd2_codigo\proyecto_bd2_codigo.cpp(723,85): warning C4244:         ]
+C:\Users\PC\Proyecto_Final_Base_de_Datos_II\proyecto_bd2_codigo\proyecto_bd2_codigo.cpp(723,73): warning C4244: 'argumento': conversión de 'T' a 'T'; posible pérdida de datos
+C:\Users\PC\Proyecto_Final_Base_de_Datos_II\proyecto_bd2_codigo\proyecto_bd2_codigo.cpp(723,73): warning C4244:         with
+C:\Users\PC\Proyecto_Final_Base_de_Datos_II\proyecto_bd2_codigo\proyecto_bd2_codigo.cpp(723,73): warning C4244:         [
+C:\Users\PC\Proyecto_Final_Base_de_Datos_II\proyecto_bd2_codigo\proyecto_bd2_codigo.cpp(723,73): warning C4244:             T=int
+C:\Users\PC\Proyecto_Final_Base_de_Datos_II\proyecto_bd2_codigo\proyecto_bd2_codigo.cpp(723,73): warning C4244:         ]
+C:\Users\PC\Proyecto_Final_Base_de_Datos_II\proyecto_bd2_codigo\proyecto_bd2_codigo.cpp(723,73): warning C4244:         and
+C:\Users\PC\Proyecto_Final_Base_de_Datos_II\proyecto_bd2_codigo\proyecto_bd2_codigo.cpp(723,73): warning C4244:         [
+C:\Users\PC\Proyecto_Final_Base_de_Datos_II\proyecto_bd2_codigo\proyecto_bd2_codigo.cpp(723,73): warning C4244:             T=float
+C:\Users\PC\Proyecto_Final_Base_de_Datos_II\proyecto_bd2_codigo\proyecto_bd2_codigo.cpp(723,73): warning C4244:         ]
+C:\Users\PC\Proyecto_Final_Base_de_Datos_II\proyecto_bd2_codigo\proyecto_bd2_codigo.cpp(726,86): warning C4244: 'argumento': conversión de 'T' a 'T'; posible pérdida de datos
+C:\Users\PC\Proyecto_Final_Base_de_Datos_II\proyecto_bd2_codigo\proyecto_bd2_codigo.cpp(726,86): warning C4244:         with
+C:\Users\PC\Proyecto_Final_Base_de_Datos_II\proyecto_bd2_codigo\proyecto_bd2_codigo.cpp(726,86): warning C4244:         [
+C:\Users\PC\Proyecto_Final_Base_de_Datos_II\proyecto_bd2_codigo\proyecto_bd2_codigo.cpp(726,86): warning C4244:             T=int
+C:\Users\PC\Proyecto_Final_Base_de_Datos_II\proyecto_bd2_codigo\proyecto_bd2_codigo.cpp(726,86): warning C4244:         ]
+C:\Users\PC\Proyecto_Final_Base_de_Datos_II\proyecto_bd2_codigo\proyecto_bd2_codigo.cpp(726,86): warning C4244:         and
+C:\Users\PC\Proyecto_Final_Base_de_Datos_II\proyecto_bd2_codigo\proyecto_bd2_codigo.cpp(726,86): warning C4244:         [
+C:\Users\PC\Proyecto_Final_Base_de_Datos_II\proyecto_bd2_codigo\proyecto_bd2_codigo.cpp(726,86): warning C4244:             T=float
+C:\Users\PC\Proyecto_Final_Base_de_Datos_II\proyecto_bd2_codigo\proyecto_bd2_codigo.cpp(726,86): warning C4244:         ]
+C:\Users\PC\Proyecto_Final_Base_de_Datos_II\proyecto_bd2_codigo\proyecto_bd2_codigo.cpp(726,74): warning C4244: 'argumento': conversión de 'T' a 'T'; posible pérdida de datos
+C:\Users\PC\Proyecto_Final_Base_de_Datos_II\proyecto_bd2_codigo\proyecto_bd2_codigo.cpp(726,74): warning C4244:         with
+C:\Users\PC\Proyecto_Final_Base_de_Datos_II\proyecto_bd2_codigo\proyecto_bd2_codigo.cpp(726,74): warning C4244:         [
+C:\Users\PC\Proyecto_Final_Base_de_Datos_II\proyecto_bd2_codigo\proyecto_bd2_codigo.cpp(726,74): warning C4244:             T=int
+C:\Users\PC\Proyecto_Final_Base_de_Datos_II\proyecto_bd2_codigo\proyecto_bd2_codigo.cpp(726,74): warning C4244:         ]
+C:\Users\PC\Proyecto_Final_Base_de_Datos_II\proyecto_bd2_codigo\proyecto_bd2_codigo.cpp(726,74): warning C4244:         and
+C:\Users\PC\Proyecto_Final_Base_de_Datos_II\proyecto_bd2_codigo\proyecto_bd2_codigo.cpp(726,74): warning C4244:         [
+C:\Users\PC\Proyecto_Final_Base_de_Datos_II\proyecto_bd2_codigo\proyecto_bd2_codigo.cpp(726,74): warning C4244:             T=float
+C:\Users\PC\Proyecto_Final_Base_de_Datos_II\proyecto_bd2_codigo\proyecto_bd2_codigo.cpp(726,74): warning C4244:         ]
+  proyecto_bd2_codigo.vcxproj -> C:\Users\PC\Proyecto_Final_Base_de_Datos_II\proyecto_bd2_codigo\x64\Debug\proyecto_bd2_codigo.exe
